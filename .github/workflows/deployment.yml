@@ -51,6 +51,7 @@ jobs:
     - name: Build frontend
       run: |
         cd frontend
+        run pwd
         npm run build
         
     - name: Setup Pages
