@@ -1,0 +1,90 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2563EB;
+  --ifm-color-primary-dark: #1E40AF;
+  --ifm-color-primary-darker: #1A368D;
+  --ifm-color-primary-darkest: #152A6C;
+  --ifm-color-primary-light: #3A7BFF;
+  --ifm-color-primary-lighter: #5A92FF;
+  --ifm-color-primary-lightest: #7AA9FF;
+  --ifm-color-secondary: #1E40AF;
+  --ifm-color-accent: #2563EB;
+  --ifm-color-text: #1E40AF;
+  --ifm-color-background: #F8FAFC;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(37, 99, 235, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom styles for restaurant website */
+.restaurant-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.menu-category {
+  margin-bottom: 2rem;
+}
+
+.menu-item {
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.3s ease;
+  background: #F8FAFC;
+}
+
+.menu-item:hover {
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2);
+}
+
+.reservation-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  border-radius: 8px;
+  background: #F8FAFC;
+}
+
+.order-summary {
+  background-color: #F8FAFC;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-received { background-color: rgba(37, 99, 235, 0.1); color: #1E40AF; }
+.status-preparing { background-color: rgba(30, 64, 175, 0.1); color: #1E40AF; }
+.status-ready { background-color: rgba(37, 99, 235, 0.2); color: #2563EB; }
+.status-out-for-delivery { background-color: rgba(30, 64, 175, 0.2); color: #1E40AF; }
+.status-completed { background-color: rgba(37, 99, 235, 0.15); color: #2563EB; }
+.status-cancelled { background-color: rgba(220, 38, 38, 0.1); color: #dc2626; }

@@ -1,0 +1,293 @@
+openapi: 3.0.0
+info:
+  title: Menu API
+  description: API for managing restaurant menu items
+  version: 1.0.0
+servers:
+  - url: http://localhost:3001/api
+    description: Development server
+paths:
+  /menu:
+    get:
+      summary: Get all menu items
+      parameters:
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "appetizers"
+        - name: dietary
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "vegan"
+        - name: available
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: true
+      responses:
+        '200':
+          description: List of menu items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MenuItem'
+                  categories:
+                    type: array
+                    items:
+                      type: string
+        '500':
+          description: Internal server error
+    post:
+      summary: Create a new menu item
+      description: Add a new item to the menu (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MenuItemInput'
+      responses:
+        '201':
+          description: Menu item created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuItem'
+        '401':
+          description: Unauthorized
+        '400':
+          description: Invalid menu item data
+        '500':
+          description: Internal server error
+  /menu/{id}:
+    get:
+      summary: Get specific menu item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Menu item details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuItem'
+        '404':
+          description: Menu item not found
+        '500':
+          description: Internal server error
+    put:
+      summary: Update menu item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MenuItemInput'
+      responses:
+        '200':
+          description: Menu item updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuItem'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Menu item not found
+        '400':
+          description: Invalid update data
+        '500':
+          description: Internal server error
+    delete:
+      summary: Delete menu item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Menu item deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Menu item not found
+        '500':
+          description: Internal server error
+  /menu/categories:
+    get:
+      summary: Get menu categories
+      responses:
+        '200':
+          description: List of menu categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '500':
+          description: Internal server error
+  /menu/search:
+    post:
+      summary: Search menu items
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  example: "salad"
+                filters:
+                  type: object
+                  properties:
+                    dietary:
+                      type: array
+                      items:
+                        type: string
+                    category:
+                      type: string
+                    available:
+                      type: boolean
+                      default: true
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MenuItem'
+        '400':
+          description: Invalid search parameters
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    MenuItem:
+      type: object
+      required:
+        - id
+        - name
+        - price
+        - category
+        - available
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+          maxLength: 500
+        price:
+          type: number
+          format: decimal
+          minimum: 0
+        category:
+          type: string
+          example: "appetizers"
+        dietaryIndicators:
+          type: array
+          items:
+            type: string
+            enum: [vegan, vegetarian, gluten-free, halal, dairy-free, nut-free]
+        available:
+          type: boolean
+          default: true
+        featured:
+          type: boolean
+          default: false
+        seasonal:
+          type: boolean
+          default: false
+        seasonStart:
+          type: string
+          format: date
+        seasonEnd:
+          type: string
+          format: date
+        imagePath:
+          type: string
+        calories:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    MenuItemInput:
+      type: object
+      required:
+        - name
+        - price
+        - category
+      properties:
+        name:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+          maxLength: 500
+        price:
+          type: number
+          format: decimal
+          minimum: 0
+        category:
+          type: string
+          example: "appetizers"
+        dietaryIndicators:
+          type: array
+          items:
+            type: string
+            enum: [vegan, vegetarian, gluten-free, halal, dairy-free, nut-free]
+        available:
+          type: boolean
+          default: true
+        featured:
+          type: boolean
+          default: false
+        seasonal:
+          type: boolean
+          default: false
+        seasonStart:
+          type: string
+          format: date
+        seasonEnd:
+          type: string
+          format: date
+        imagePath:
+          type: string
+        calories:
+          type: integer

@@ -1,0 +1,154 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id            String   @id @default(uuid())
+  email         String   @unique
+  firstName     String
+  lastName      String
+  phone         String?
+  address       String?  // Store as JSON string
+  preferences   String?  // Store as JSON string
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  reservations  Reservation[]
+  orders        Order[]
+
+  @@map("customers")
+}
+
+model MenuItem {
+  id                String     @id @default(uuid())
+  name              String
+  description       String?
+  price             Float
+  category          String
+  dietaryIndicators String?    // Store as JSON string array
+  available         Boolean    @default(true)
+  featured          Boolean    @default(false)
+  seasonal          Boolean    @default(false)
+  seasonStart       DateTime?
+  seasonEnd         DateTime?
+  imagePath         String?
+  calories          Int?
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  // Relations
+  orderItems        OrderItem[]
+
+  @@map("menu_items")
+}
+
+model Table {
+  id        String   @id @default(uuid())
+  tableNumber String @unique
+  capacity  Int
+  location  String?
+  available Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  reservations Reservation[]
+
+  @@map("tables")
+}
+
+model Reservation {
+  id              String     @id @default(uuid())
+  customerId      String
+  reservationDate DateTime
+  reservationTime DateTime
+  partySize       Int
+  specialRequests String?
+  status          String     @default("PENDING")  // Using String instead of enum
+  tableNumber     String?
+  tableId         String?
+  durationMinutes Int?       @default(90)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  confirmationCode String    @unique
+
+  // Relations
+  customer Customer @relation(fields: [customerId], references: [id])
+  table    Table?   @relation(fields: [tableId], references: [id])
+
+  @@map("reservations")
+  @@index([reservationDate, reservationTime])  // Removed status from index as it's not a scalar field in SQLite
+  @@unique([customerId, reservationDate, reservationTime], name: "unique_customer_reservation_time")
+}
+
+model Order {
+  id               String        @id @default(uuid())
+  customerId       String
+  orderType        String        // Using String instead of enum
+  status           String        @default("RECEIVED")  // Using String instead of enum
+  totalAmount      Float
+  taxAmount        Float?
+  tipAmount        Float        @default(0)
+  deliveryFee      Float        @default(0)
+  paymentStatus    String       @default("PENDING")  // Using String instead of enum
+  paymentMethod    String?      // Using String instead of enum
+  deliveryAddress  String?      // Store as JSON string
+  pickupTime       DateTime?
+  deliveryTime     DateTime?
+  specialInstructions String?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+  trackingId       String        @unique
+
+  // Relations
+  customer      Customer    @relation(fields: [customerId], references: [id])
+  orderItems    OrderItem[]
+  statusHistory OrderStatusHistory[]
+
+  @@map("orders")
+  @@index([customerId, createdAt])
+}
+
+model OrderItem {
+  id                 String   @id @default(uuid())
+  orderId            String
+  menuItemId         String
+  quantity           Int
+  unitPrice          Float
+  specialInstructions String?
+  subtotal           Float
+
+  // Relations
+  order    Order    @relation(fields: [orderId], references: [id])
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id])
+
+  @@map("order_items")
+  @@index([orderId])
+}
+
+model OrderStatusHistory {
+  id        String   @id @default(uuid())
+  orderId   String
+  status    String   // Using String instead of enum
+  timestamp DateTime @default(now())
+  notes     String?
+  updatedBy String?
+
+  // Relations
+  order Order @relation(fields: [orderId], references: [id])
+
+  @@map("order_status_history")
+  @@index([orderId, timestamp])
+}
+
+// Enum definitions removed for SQLite compatibility
+// Using String fields with validation in the application layer

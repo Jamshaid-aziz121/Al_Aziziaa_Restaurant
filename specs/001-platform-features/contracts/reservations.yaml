@@ -1,0 +1,221 @@
+openapi: 3.0.0
+info:
+  title: Reservation API
+  description: API for managing restaurant table reservations
+  version: 1.0.0
+servers:
+  - url: http://localhost:3001/api
+    description: Development server
+paths:
+  /reservations/availability:
+    get:
+      summary: Check table availability
+      description: Get available time slots for a given date and party size
+      parameters:
+        - name: date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+            example: "2023-12-25"
+        - name: partySize
+          in: query
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 20
+            example: 4
+      responses:
+        '200':
+          description: Available time slots
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  date:
+                    type: string
+                    format: date
+                  availableSlots:
+                    type: array
+                    items:
+                      type: string
+                      format: time
+                      example: "19:00"
+        '400':
+          description: Invalid input parameters
+        '500':
+          description: Internal server error
+  /reservations:
+    post:
+      summary: Create a new reservation
+      description: Make a new table reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - customerId
+                - reservationDate
+                - reservationTime
+                - partySize
+              properties:
+                customerId:
+                  type: string
+                  format: uuid
+                  example: "123e4567-e89b-12d3-a456-426614174000"
+                reservationDate:
+                  type: string
+                  format: date
+                  example: "2023-12-25"
+                reservationTime:
+                  type: string
+                  format: time
+                  example: "19:00"
+                partySize:
+                  type: integer
+                  minimum: 1
+                  maximum: 20
+                  example: 4
+                specialRequests:
+                  type: string
+                  maxLength: 500
+                  example: "Window seat preferred"
+      responses:
+        '201':
+          description: Reservation created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        '400':
+          description: Invalid reservation data
+        '409':
+          description: Table not available for requested time
+        '500':
+          description: Internal server error
+  /reservations/{id}:
+    get:
+      summary: Get reservation details
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Reservation details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        '404':
+          description: Reservation not found
+        '500':
+          description: Internal server error
+    put:
+      summary: Update reservation
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservationDate:
+                  type: string
+                  format: date
+                reservationTime:
+                  type: string
+                  format: time
+                partySize:
+                  type: integer
+                specialRequests:
+                  type: string
+                status:
+                  type: string
+                  enum: [pending, confirmed, cancelled]
+      responses:
+        '200':
+          description: Reservation updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        '400':
+          description: Invalid update data
+        '404':
+          description: Reservation not found
+        '500':
+          description: Internal server error
+    delete:
+      summary: Cancel reservation
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Reservation cancelled successfully
+        '404':
+          description: Reservation not found
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    Reservation:
+      type: object
+      required:
+        - id
+        - customerId
+        - reservationDate
+        - reservationTime
+        - partySize
+        - status
+        - confirmationCode
+      properties:
+        id:
+          type: string
+          format: uuid
+        customerId:
+          type: string
+          format: uuid
+        reservationDate:
+          type: string
+          format: date
+        reservationTime:
+          type: string
+          format: time
+        partySize:
+          type: integer
+        specialRequests:
+          type: string
+        status:
+          type: string
+          enum: [pending, confirmed, cancelled]
+        tableNumber:
+          type: string
+        confirmationCode:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
