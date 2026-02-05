@@ -1,0 +1,10 @@
+[INFO] Starting the development server...
+[WARNING] The `siteConfig.onBrokenMarkdownLinks` config option is deprecated and will be removed in Docusaurus v4.
+Please migrate and move this option to `siteConfig.markdown.hooks.onBrokenMarkdownLinks` instead.
+[SUCCESS] Docusaurus website is running at: http://localhost:3001/
+[webpackbar] ℹ Compiling Client
+[webpackbar] ✔ Client: Compiled with some errors in 1.01m
+unable to locate '/mnt/d/piaic/Regeneration_01/Aziz_Restuarant/frontend/static/**/*' glob
+client (webpack 5.105.0) compiled with 1 error
+[WARNING] The `siteConfig.onBrokenMarkdownLinks` config option is deprecated and will be removed in Docusaurus v4.
+Please migrate and move this option to `siteConfig.markdown.hooks.onBrokenMarkdownLinks` instead.
