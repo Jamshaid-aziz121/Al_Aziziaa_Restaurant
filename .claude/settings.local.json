@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(npx docusaurus start:*)",
+      "Bash(timeout 5 bash -c \"echo > /dev/tcp/localhost/3001\":*)",
+      "Bash(netstat:*)",
+      "Bash(ps:*)",
+      "Bash(pkill:*)",
+      "Bash(npx stylelint:*)",
+      "Bash(npm install)",
+      "Bash(node -e:*)",
+      "Bash(DEBUG=*)",
+      "Bash(npx docusaurus build)"
+    ]
+  }
+}
