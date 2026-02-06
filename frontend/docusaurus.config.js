@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -18,10 +18,11 @@ const config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/Al_Aziziaa_Restaurant/',
 
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'aziz-restaurant', // Usually your GitHub org/user name.
-  projectName: 'aziz-restaurant', // Usually your repo name.
+  organizationName: 'Aziz & Sons ', // Usually your GitHub org/user name.
+  projectName: 'Al_Aziziaa_Restaurant', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -63,10 +64,10 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
-          {to: '/menu', label: 'Menu', position: 'left'},
-          {to: '/reservation', label: 'Reservation', position: 'left'},
-          {to: '/order', label: 'Order', position: 'left'},
-          {to: '/track-order', label: 'Track Order', position: 'left'},
+          { to: '/menu', label: 'Menu', position: 'left' },
+          { to: '/reservation', label: 'Reservation', position: 'left' },
+          { to: '/order', label: 'Order', position: 'left' },
+          { to: '/track-order', label: 'Track Order', position: 'left' },
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
