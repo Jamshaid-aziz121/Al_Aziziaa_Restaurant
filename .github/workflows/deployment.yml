@@ -27,10 +27,6 @@ jobs:
         node-version: '>=18.x'
         cache: 'npm'
 
-    - name: Install frontend dependencies
-      run: npm ci
-      working-directory: frontend/build
-
     - name: Lint code
       run: npm run lint --if-present
       working-directory: frontend/build
