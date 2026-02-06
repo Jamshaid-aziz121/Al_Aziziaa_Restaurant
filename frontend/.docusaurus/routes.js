@@ -3,38 +3,73 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/about',
-    component: ComponentCreator('/about', 'c49'),
+    path: '/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug', 'ab7'),
     exact: true
   },
   {
-    path: '/contact',
-    component: ComponentCreator('/contact', 'abe'),
+    path: '/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/config',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/config', '562'),
     exact: true
   },
   {
-    path: '/menu',
-    component: ComponentCreator('/menu', 'a23'),
+    path: '/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/content',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/content', '9f6'),
     exact: true
   },
   {
-    path: '/order',
-    component: ComponentCreator('/order', 'd6f'),
+    path: '/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/globalData',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/globalData', '095'),
     exact: true
   },
   {
-    path: '/reservation',
-    component: ComponentCreator('/reservation', 'f69'),
+    path: '/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/metadata',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/metadata', 'e61'),
     exact: true
   },
   {
-    path: '/track-order',
-    component: ComponentCreator('/track-order', 'd15'),
+    path: '/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/registry',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/registry', '18b'),
     exact: true
   },
   {
-    path: '/',
-    component: ComponentCreator('/', '2e1'),
+    path: '/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/routes',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/routes', 'cff'),
+    exact: true
+  },
+  {
+    path: '/Al_Aziziaa_Restaurant/index.html/about',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/about', 'be7'),
+    exact: true
+  },
+  {
+    path: '/Al_Aziziaa_Restaurant/index.html/contact',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/contact', 'de7'),
+    exact: true
+  },
+  {
+    path: '/Al_Aziziaa_Restaurant/index.html/menu',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/menu', 'e50'),
+    exact: true
+  },
+  {
+    path: '/Al_Aziziaa_Restaurant/index.html/order',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/order', 'c16'),
+    exact: true
+  },
+  {
+    path: '/Al_Aziziaa_Restaurant/index.html/reservation',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/reservation', '17b'),
+    exact: true
+  },
+  {
+    path: '/Al_Aziziaa_Restaurant/index.html/track-order',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/track-order', 'a7f'),
+    exact: true
+  },
+  {
+    path: '/Al_Aziziaa_Restaurant/index.html/',
+    component: ComponentCreator('/Al_Aziziaa_Restaurant/index.html/', '112'),
     exact: true
   },
   {

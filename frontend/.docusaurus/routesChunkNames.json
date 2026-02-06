@@ -1,51 +1,94 @@
 {
-  "/about-c49": {
-    "__comp": "7792a21f",
+  "/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug-ab7": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
     "__context": {
-      "plugin": "a7456010"
-    },
-    "config": "5e9f5e1a"
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-docusaurus-debugb-38-0a6"
+    }
   },
-  "/contact-abe": {
-    "__comp": "83e9e333",
+  "/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/config-562": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
     "__context": {
-      "plugin": "a7456010"
-    },
-    "config": "5e9f5e1a"
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-docusaurus-debugb-38-0a6"
+    }
   },
-  "/menu-a23": {
-    "__comp": "56a250e1",
+  "/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/content-9f6": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
     "__context": {
-      "plugin": "a7456010"
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-docusaurus-debugb-38-0a6"
     },
-    "config": "5e9f5e1a"
+    "__props": "__props---al-aziziaa-restaurant-index-html-docusaurus-debug-content-064-d73"
   },
-  "/order-d6f": {
-    "__comp": "8d2a808f",
+  "/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/globalData-095": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
     "__context": {
-      "plugin": "a7456010"
-    },
-    "config": "5e9f5e1a"
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-docusaurus-debugb-38-0a6"
+    }
   },
-  "/reservation-f69": {
-    "__comp": "1f9e78bd",
+  "/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/metadata-e61": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
     "__context": {
-      "plugin": "a7456010"
-    },
-    "config": "5e9f5e1a"
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-docusaurus-debugb-38-0a6"
+    }
   },
-  "/track-order-d15": {
-    "__comp": "db11c306",
+  "/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/registry-18b": {
+    "__comp": "__comp---theme-debug-registry-679-501",
     "__context": {
-      "plugin": "a7456010"
-    },
-    "config": "5e9f5e1a"
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-docusaurus-debugb-38-0a6"
+    }
   },
-  "/-2e1": {
-    "__comp": "c4f5d8e4",
+  "/Al_Aziziaa_Restaurant/index.html/__docusaurus/debug/routes-cff": {
+    "__comp": "__comp---theme-debug-routes-946-699",
     "__context": {
-      "plugin": "a7456010"
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-docusaurus-debugb-38-0a6"
+    }
+  },
+  "/Al_Aziziaa_Restaurant/index.html/about-be7": {
+    "__comp": "__comp---site-src-pages-about-js-779-319",
+    "__context": {
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-abouta-74-2a1"
     },
-    "config": "5e9f5e1a"
+    "config": "config---al-aziziaa-restaurant-index-html-about-5-e-9-f92"
+  },
+  "/Al_Aziziaa_Restaurant/index.html/contact-de7": {
+    "__comp": "__comp---site-src-pages-contact-js-83-e-320",
+    "__context": {
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-abouta-74-2a1"
+    },
+    "config": "config---al-aziziaa-restaurant-index-html-about-5-e-9-f92"
+  },
+  "/Al_Aziziaa_Restaurant/index.html/menu-e50": {
+    "__comp": "__comp---site-src-pages-menu-js-56-a-3e2",
+    "__context": {
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-abouta-74-2a1"
+    },
+    "config": "config---al-aziziaa-restaurant-index-html-about-5-e-9-f92"
+  },
+  "/Al_Aziziaa_Restaurant/index.html/order-c16": {
+    "__comp": "__comp---site-src-pages-order-js-8-d-2-cd4",
+    "__context": {
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-abouta-74-2a1"
+    },
+    "config": "config---al-aziziaa-restaurant-index-html-about-5-e-9-f92"
+  },
+  "/Al_Aziziaa_Restaurant/index.html/reservation-17b": {
+    "__comp": "__comp---site-src-pages-reservation-js-1-f-9-a92",
+    "__context": {
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-abouta-74-2a1"
+    },
+    "config": "config---al-aziziaa-restaurant-index-html-about-5-e-9-f92"
+  },
+  "/Al_Aziziaa_Restaurant/index.html/track-order-a7f": {
+    "__comp": "__comp---site-src-pages-track-order-jsdb-1-f6b",
+    "__context": {
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-abouta-74-2a1"
+    },
+    "config": "config---al-aziziaa-restaurant-index-html-about-5-e-9-f92"
+  },
+  "/Al_Aziziaa_Restaurant/index.html/-112": {
+    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
+    "__context": {
+      "plugin": "plugin---al-aziziaa-restaurant-index-html-abouta-74-2a1"
+    },
+    "config": "config---al-aziziaa-restaurant-index-html-about-5-e-9-f92"
   }
 }
