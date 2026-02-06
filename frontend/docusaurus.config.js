@@ -13,10 +13,10 @@ const config = {
   favicon: 'img/favicon.svg',
 
   // Set the production url of your site here
-  url: 'https://jamshaid-aziz121.github.io/Al_Aziziaa_Restaurant/',
+  url: 'https://jamshaid-aziz121.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/Al_Aziziaa_Restaurant/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
