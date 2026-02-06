@@ -7,7 +7,7 @@ on:
     branches: [ 001-platform-features ]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -44,8 +44,4 @@ jobs:
       working-directory: frontend
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./frontend/build
-        user_name: "github-actions[bot]"
-        user_email: "github-actions[bot]@users.noreply.github.com"
+      
